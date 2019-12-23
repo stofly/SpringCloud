@@ -1,0 +1,39 @@
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml  #mybatis所在路径
+  type-aliases-package: com.newsee.entities #entity别名类
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml #mapper映射文件
+spring:
+  application:
+    name: springcloud-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/cloudDB01
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+      #defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+  instance:
+    instance-id: springclouddept8001
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+info:
+  app.name: newsee-springcloud #工程名称
+  company.name: www.new-see.com #公司名称
+  build.artifactId: $project.artifactId$ #父工程的build
+  build.version: $project.version$
+

@@ -1,0 +1,5 @@
+# Project exclude paths
+/SpringCloud-Api/target/
+/SpringCloud-Provider-Dept-8001/target/
+/SpringClound-Consumer-Dept-80/target/
+/SPringleCloud-Eureka-Server-7001/target/
